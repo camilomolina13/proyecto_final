@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportar Datos</title>
+</head>
+<body>
+    <h1>Exportar Datos</h1>
+
+    <!-- Mostrar mensajes de éxito o error -->
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Botones para exportar -->
+    <form action="{% url 'exportar_a_mongo' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Exportar a MongoDB</button>
+    </form>
+
+    <form action="{% url 'exportar_a_cassandra' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Exportar a Cassandra</button>
+    </form>
+</body>
+</html>

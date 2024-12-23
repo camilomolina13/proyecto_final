@@ -1,0 +1,24 @@
+<h1>Lista de Estudiantes</h1>
+<a href="{% url 'crear_estudiante' %}">Crear Estudiante</a>
+<a href="{% url 'listar_cursos' %}">Ver Cursos</a>
+<a href="{% url 'listar_inscripciones' %}">Ver Inscripciones</a>
+<a href="{% url 'exportar_datos' %}">Exportar Datos</a>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Correo</th>
+    <th>Edad</th>
+    <th>Acciones</th>
+  </tr>
+  {% for estudiante in estudiantes %}
+  <tr>
+    <td>{{ estudiante.nombre }}</td>
+    <td>{{ estudiante.correo }}</td>
+    <td>{{ estudiante.edad }}</td>
+    <td>
+        <a href="{% url 'editar_estudiante' estudiante.pk %}">Editar</a>
+      <a href="{% url 'eliminar_estudiante' estudiante.pk %}">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

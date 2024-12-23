@@ -1,0 +1,9 @@
+<h1>Crear Curso</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" required><br><br>
+    <label for="descripcion">Descripción:</label>
+    <textarea name="descripcion" id="descripcion" required></textarea><br><br>
+    <button type="submit">Crear Curso</button>
+</form>

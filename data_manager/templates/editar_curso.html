@@ -1,0 +1,9 @@
+<h1>Editar Curso</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" value="{{ curso.nombre }}" required><br><br>
+    <label for="descripcion">Descripción:</label>
+    <textarea name="descripcion" id="descripcion" required>{{ curso.descripcion }}</textarea><br><br>
+    <button type="submit">Actualizar Curso</button>
+</form>

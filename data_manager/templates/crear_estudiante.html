@@ -1,0 +1,14 @@
+<form method="post" action="{% url 'crear_estudiante' %}">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" required>
+  
+    <label for="edad">Edad:</label>
+    <input type="number" name="edad" id="edad" required>
+  
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+  
+    <button type="submit">Crear Estudiante</button>
+  </form>
+  

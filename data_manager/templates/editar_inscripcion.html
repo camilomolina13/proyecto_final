@@ -1,0 +1,23 @@
+<h1>Editar Inscripción</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="estudiante">Estudiante:</label>
+  <select name="estudiante_id" id="estudiante" required>
+    {% for estudiante in estudiantes %}
+    <option value="{{ estudiante.id }}" {% if inscripcion.estudiante.id == estudiante.id %}selected{% endif %}>
+      {{ estudiante.nombre }}
+    </option>
+    {% endfor %}
+  </select><br>
+
+  <label for="curso">Curso:</label>
+  <select name="curso_id" id="curso" required>
+    {% for curso in cursos %}
+    <option value="{{ curso.id }}" {% if inscripcion.curso.id == curso.id %}selected{% endif %}>
+      {{ curso.nombre }}
+    </option>
+    {% endfor %}
+  </select><br>
+
+  <button type="submit">Actualizar</button>
+</form>

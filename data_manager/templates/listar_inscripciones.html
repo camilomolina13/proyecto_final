@@ -1,0 +1,21 @@
+<h1>Inscripciones</h1>
+<a href="{% url 'crear_inscripcion' %}">Nueva Inscripción</a>
+<table>
+  <tr>
+    <th>Estudiante</th>
+    <th>Curso</th>
+    <th>Fecha de Inscripción</th>
+    <th>Acciones</th>
+  </tr>
+  {% for inscripcion in inscripciones %}
+  <tr>
+    <td>{{ inscripcion.estudiante.nombre }}</td>
+    <td>{{ inscripcion.curso.nombre }}</td>
+    <td>{{ inscripcion.fecha_inscripcion }}</td>
+    <td>
+      <a href="{% url 'editar_inscripcion' inscripcion.id %}">Editar</a> |
+      <a href="{% url 'eliminar_inscripcion' inscripcion.id %}">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

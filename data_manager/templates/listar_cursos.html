@@ -1,0 +1,19 @@
+<h1>Lista de Cursos</h1>
+<a href="{% url 'crear_curso' %}">Crear Curso</a>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripción</th>
+    <th>Acciones</th>
+  </tr>
+  {% for curso in cursos %}
+  <tr>
+    <td>{{ curso.nombre }}</td>
+    <td>{{ curso.descripcion }}</td>
+    <td>
+      <a href="{% url 'editar_curso' curso.pk %}">Editar</a>
+      <a href="{% url 'eliminar_curso' curso.pk %}" onclick="return confirm('¿Estás seguro de que deseas eliminar este curso?');">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
